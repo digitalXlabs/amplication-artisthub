@@ -20,6 +20,7 @@ import {
 } from "class-validator";
 import { Type } from "class-transformer";
 import { EnumUserRoles } from "./EnumUserRoles";
+import { EnumUserUserRoles } from "./EnumUserUserRoles";
 
 @ObjectType()
 class User {
@@ -83,6 +84,20 @@ class User {
   @Type(() => Date)
   @Field(() => Date)
   updatedAt!: Date;
+
+  @ApiProperty({
+    required: false,
+    enum: EnumUserUserRoles,
+    isArray: true,
+  })
+  @IsEnum(EnumUserUserRoles, {
+    each: true,
+  })
+  @IsOptional()
+  @Field(() => [EnumUserUserRoles], {
+    nullable: true,
+  })
+  userRoles?: Array<"Option1">;
 
   @ApiProperty({
     required: false,

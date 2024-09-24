@@ -67,12 +67,13 @@ model Organization {
 }
 
 model User {
-  createdAt DateTime        @default(now())
+  createdAt DateTime            @default(now())
   email     String?
-  id        String          @id @default(cuid())
+  id        String              @id @default(cuid())
   password  String?
   roles     EnumUserRoles[]
-  updatedAt DateTime        @updatedAt
+  updatedAt DateTime            @updatedAt
+  userRoles EnumUserUserRoles[]
   username  String?
 }
 
@@ -81,5 +82,9 @@ enum EnumOrganizationTypeField {
 }
 
 enum EnumUserRoles {
+  Option1
+}
+
+enum EnumUserUserRoles {
   Option1
 }

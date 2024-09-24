@@ -20,6 +20,13 @@ export const UserEdit = (props: EditProps): React.ReactElement => {
           optionText="label"
           optionValue="value"
         />
+        <SelectArrayInput
+          label="UserRoles"
+          source="userRoles"
+          choices={[{ label: "Option 1", value: "Option1" }]}
+          optionText="label"
+          optionValue="value"
+        />
         <TextInput label="Username" source="username" />
       </SimpleForm>
     </Edit>
