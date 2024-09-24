@@ -13,6 +13,7 @@ import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import { IsString, IsOptional, MaxLength, IsEnum } from "class-validator";
 import { EnumUserRoles } from "./EnumUserRoles";
+import { EnumUserUserRoles } from "./EnumUserUserRoles";
 
 @InputType()
 class UserUpdateInput {
@@ -52,6 +53,20 @@ class UserUpdateInput {
     nullable: true,
   })
   roles?: Array<"Option1">;
+
+  @ApiProperty({
+    required: false,
+    enum: EnumUserUserRoles,
+    isArray: true,
+  })
+  @IsEnum(EnumUserUserRoles, {
+    each: true,
+  })
+  @IsOptional()
+  @Field(() => [EnumUserUserRoles], {
+    nullable: true,
+  })
+  userRoles?: Array<"Option1">;
 
   @ApiProperty({
     required: false,

@@ -7,5 +7,6 @@ export type UserOrderByInput = {
   password?: SortOrder;
   roles?: SortOrder;
   updatedAt?: SortOrder;
+  userRoles?: SortOrder;
   username?: SortOrder;
 };

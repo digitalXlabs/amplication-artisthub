@@ -5,5 +5,6 @@ export type User = {
   password: string | null;
   roles?: Array<"Option1">;
   updatedAt: Date;
+  userRoles?: Array<"Option1">;
   username: string | null;
 };
