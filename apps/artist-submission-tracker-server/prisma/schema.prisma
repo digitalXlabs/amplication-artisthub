@@ -1,0 +1,85 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Artwork {
+  artist      Artist?      @relation(fields: [artistId], references: [id])
+  artistId    String?
+  createdAt   DateTime     @default(now())
+  description String?
+  file        Json?
+  id          String       @id @default(cuid())
+  submissions Submission[]
+  title       String?
+  updatedAt   DateTime     @updatedAt
+}
+
+model Project {
+  artist      Artist?  @relation(fields: [artistId], references: [id])
+  artistId    String?
+  createdAt   DateTime @default(now())
+  description String?
+  id          String   @id @default(cuid())
+  name        String?
+  updatedAt   DateTime @updatedAt
+}
+
+model Artist {
+  artistStatements String?
+  artworks         Artwork[]
+  bioData          String?
+  bioPdf           Json?
+  createdAt        DateTime  @default(now())
+  cvData           String?
+  cvPdf            Json?
+  email            String?
+  id               String    @id @default(cuid())
+  name             String?
+  projects         Project[]
+  updatedAt        DateTime  @updatedAt
+}
+
+model Submission {
+  artwork        Artwork?      @relation(fields: [artworkId], references: [id])
+  artworkId      String?
+  createdAt      DateTime      @default(now())
+  deadline       DateTime?
+  fee            Float?
+  id             String        @id @default(cuid())
+  organization   Organization? @relation(fields: [organizationId], references: [id])
+  organizationId String?
+  title          String?
+  updatedAt      DateTime      @updatedAt
+}
+
+model Organization {
+  createdAt   DateTime                   @default(now())
+  id          String                     @id @default(cuid())
+  name        String?
+  submissions Submission[]
+  typeField   EnumOrganizationTypeField?
+  updatedAt   DateTime                   @updatedAt
+}
+
+model User {
+  createdAt DateTime        @default(now())
+  email     String?
+  id        String          @id @default(cuid())
+  password  String?
+  roles     EnumUserRoles[]
+  updatedAt DateTime        @updatedAt
+  username  String?
+}
+
+enum EnumOrganizationTypeField {
+  Option1
+}
+
+enum EnumUserRoles {
+  Option1
+}
