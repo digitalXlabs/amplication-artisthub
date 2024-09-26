@@ -1,3 +1,6 @@
 export enum EnumJournalGrindSize {
-  Option_1 = "Option1",
+  Fine = "Fine",
+  Espresso = "Espresso",
+  FilterDrip = "FilterDrip",
+  Coarse = "Coarse",
 }

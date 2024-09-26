@@ -41,7 +41,13 @@ class Journal {
   @Field(() => EnumJournalBrewMethod, {
     nullable: true,
   })
-  brewMethod?: "Option1" | null;
+  brewMethod?:
+    | "Espresso"
+    | "FrenchPress"
+    | "PourOver"
+    | "AeroPress"
+    | "Drip"
+    | null;
 
   @ApiProperty({
     required: false,
@@ -90,6 +96,18 @@ class Journal {
 
   @ApiProperty({
     required: false,
+    type: String,
+  })
+  @IsString()
+  @MaxLength(1000)
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  createdBy!: string | null;
+
+  @ApiProperty({
+    required: false,
     enum: EnumJournalGrindSize,
   })
   @IsEnum(EnumJournalGrindSize)
@@ -97,7 +115,7 @@ class Journal {
   @Field(() => EnumJournalGrindSize, {
     nullable: true,
   })
-  grindSize?: "Option1" | null;
+  grindSize?: "Fine" | "Espresso" | "FilterDrip" | "Coarse" | null;
 
   @ApiProperty({
     required: true,

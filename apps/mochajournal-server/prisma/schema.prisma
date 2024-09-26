@@ -27,6 +27,7 @@ model Journal {
   coffeeName       String?
   content          String?
   createdAt        DateTime               @default(now())
+  createdBy        String?
   grindSize        EnumJournalGrindSize?
   id               String                 @id @default(cuid())
   notes            String?
@@ -46,9 +47,16 @@ enum EnumUserUserRoles {
 }
 
 enum EnumJournalBrewMethod {
-  Option1
+  Espresso
+  FrenchPress
+  PourOver
+  AeroPress
+  Drip
 }
 
 enum EnumJournalGrindSize {
-  Option1
+  Fine
+  Espresso
+  FilterDrip
+  Coarse
 }
