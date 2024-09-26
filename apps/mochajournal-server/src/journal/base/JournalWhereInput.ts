@@ -33,7 +33,7 @@ class JournalWhereInput {
   @Field(() => EnumJournalBrewMethod, {
     nullable: true,
   })
-  brewMethod?: "Option1";
+  brewMethod?: "Espresso" | "FrenchPress" | "PourOver" | "AeroPress" | "Drip";
 
   @ApiProperty({
     required: false,
@@ -70,6 +70,17 @@ class JournalWhereInput {
 
   @ApiProperty({
     required: false,
+    type: StringNullableFilter,
+  })
+  @Type(() => StringNullableFilter)
+  @IsOptional()
+  @Field(() => StringNullableFilter, {
+    nullable: true,
+  })
+  createdBy?: StringNullableFilter;
+
+  @ApiProperty({
+    required: false,
     enum: EnumJournalGrindSize,
   })
   @IsEnum(EnumJournalGrindSize)
@@ -77,7 +88,7 @@ class JournalWhereInput {
   @Field(() => EnumJournalGrindSize, {
     nullable: true,
   })
-  grindSize?: "Option1";
+  grindSize?: "Fine" | "Espresso" | "FilterDrip" | "Coarse";
 
   @ApiProperty({
     required: false,

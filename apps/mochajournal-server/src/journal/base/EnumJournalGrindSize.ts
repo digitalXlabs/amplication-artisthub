@@ -12,7 +12,10 @@ https://docs.amplication.com/how-to/custom-code
 import { registerEnumType } from "@nestjs/graphql";
 
 export enum EnumJournalGrindSize {
-  Option_1 = "Option1",
+  Fine = "Fine",
+  Espresso = "Espresso",
+  FilterDrip = "FilterDrip",
+  Coarse = "Coarse",
 }
 
 registerEnumType(EnumJournalGrindSize, {

@@ -18,6 +18,7 @@ export const JournalShow = (props: ShowProps): React.ReactElement => {
         <TextField label="CoffeeName" source="coffeeName" />
         <TextField label="Content" source="content" />
         <DateField source="createdAt" label="Created At" />
+        <TextField label="CreatedBy" source="createdBy" />
         <TextField label="GrindSize" source="grindSize" />
         <TextField label="ID" source="id" />
         <TextField label="Notes" source="notes" />

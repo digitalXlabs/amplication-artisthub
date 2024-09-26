@@ -6,6 +6,7 @@ export type JournalOrderByInput = {
   coffeeName?: SortOrder;
   content?: SortOrder;
   createdAt?: SortOrder;
+  createdBy?: SortOrder;
   grindSize?: SortOrder;
   id?: SortOrder;
   notes?: SortOrder;

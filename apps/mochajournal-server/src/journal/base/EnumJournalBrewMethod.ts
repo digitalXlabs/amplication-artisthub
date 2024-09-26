@@ -12,7 +12,11 @@ https://docs.amplication.com/how-to/custom-code
 import { registerEnumType } from "@nestjs/graphql";
 
 export enum EnumJournalBrewMethod {
-  Option_1 = "Option1",
+  Espresso = "Espresso",
+  FrenchPress = "FrenchPress",
+  PourOver = "PourOver",
+  AeroPress = "AeroPress",
+  Drip = "Drip",
 }
 
 registerEnumType(EnumJournalBrewMethod, {

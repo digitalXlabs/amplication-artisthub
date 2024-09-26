@@ -83,6 +83,17 @@ class JournalOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
+  createdBy?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["asc", "desc"],
+  })
+  @IsOptional()
+  @IsEnum(SortOrder)
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
   grindSize?: SortOrder;
 
   @ApiProperty({

@@ -1,12 +1,19 @@
 import { User } from "../user/User";
 
 export type Journal = {
-  brewMethod?: "Option1" | null;
+  brewMethod?:
+    | "Espresso"
+    | "FrenchPress"
+    | "PourOver"
+    | "AeroPress"
+    | "Drip"
+    | null;
   brewTime: number | null;
   coffeeName: string | null;
   content: string | null;
   createdAt: Date;
-  grindSize?: "Option1" | null;
+  createdBy: string | null;
+  grindSize?: "Fine" | "Espresso" | "FilterDrip" | "Coarse" | null;
   id: string;
   notes: string | null;
   rating: number | null;

@@ -6,11 +6,12 @@ import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
 import { UserWhereUniqueInput } from "../user/UserWhereUniqueInput";
 
 export type JournalWhereInput = {
-  brewMethod?: "Option1";
+  brewMethod?: "Espresso" | "FrenchPress" | "PourOver" | "AeroPress" | "Drip";
   brewTime?: FloatNullableFilter;
   coffeeName?: StringNullableFilter;
   content?: StringNullableFilter;
-  grindSize?: "Option1";
+  createdBy?: StringNullableFilter;
+  grindSize?: "Fine" | "Espresso" | "FilterDrip" | "Coarse";
   id?: StringFilter;
   notes?: StringNullableFilter;
   rating?: IntNullableFilter;

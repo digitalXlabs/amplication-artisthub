@@ -20,7 +20,13 @@ export const JournalCreate = (props: CreateProps): React.ReactElement => {
         <SelectInput
           source="brewMethod"
           label="BrewMethod"
-          choices={[{ label: "Option 1", value: "Option1" }]}
+          choices={[
+            { label: "Espresso", value: "Espresso" },
+            { label: "French Press", value: "FrenchPress" },
+            { label: "Pour Over", value: "PourOver" },
+            { label: "AeroPress", value: "AeroPress" },
+            { label: "Drip", value: "Drip" },
+          ]}
           optionText="label"
           allowEmpty
           optionValue="value"
@@ -28,10 +34,16 @@ export const JournalCreate = (props: CreateProps): React.ReactElement => {
         <NumberInput label="BrewTime" source="brewTime" />
         <TextInput label="CoffeeName" source="coffeeName" />
         <TextInput label="Content" multiline source="content" />
+        <TextInput label="CreatedBy" source="createdBy" />
         <SelectInput
           source="grindSize"
           label="GrindSize"
-          choices={[{ label: "Option 1", value: "Option1" }]}
+          choices={[
+            { label: "Fine", value: "Fine" },
+            { label: "Espresso", value: "Espresso" },
+            { label: "Filter/Drip", value: "FilterDrip" },
+            { label: "Coarse", value: "Coarse" },
+          ]}
           optionText="label"
           allowEmpty
           optionValue="value"

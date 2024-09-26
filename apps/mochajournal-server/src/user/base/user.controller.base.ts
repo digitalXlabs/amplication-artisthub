@@ -234,6 +234,7 @@ export class UserControllerBase {
         coffeeName: true,
         content: true,
         createdAt: true,
+        createdBy: true,
         grindSize: true,
         id: true,
         notes: true,
